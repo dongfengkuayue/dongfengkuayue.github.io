@@ -6,16 +6,17 @@
   <meta name="keywords" content=" 旅游 ">
   <meta name="description" content="江南天池旅游 | zich 的 blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="人生还是要多尝试啊，不设限！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://github.com/dongfengkuayue/about/index.html">
+<meta name="description" content="如果你用Go写过程序，就会发现用Go来写服务是很简单的事。比如说，只要几行代码就可以跑起来一个HTTP服务。但是如果想让服务在生产环境能运行起来，我们需要额外加一些东西。本文讨论服务如何能够在kubernets上运行起来。 文中所有的例子可以在这里（按标签分类），或者这里（按commit分类）找到。 第一步 最简单的服务从一个最简单的应用开始：main.go package main  impor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GO 零基础 step-by-step 写一个运行在 kubernetes 的服务">
+<meta property="og:url" content="http://github.com/dongfengkuayue/2017/12/28/Write%20a%20Kubernetes-ready%20service%20from%20zero%20step-by-step/index.html">
 <meta property="og:site_name" content="zich 的 blog">
-<meta property="og:description" content="人生还是要多尝试啊，不设限！">
+<meta property="og:description" content="如果你用Go写过程序，就会发现用Go来写服务是很简单的事。比如说，只要几行代码就可以跑起来一个HTTP服务。但是如果想让服务在生产环境能运行起来，我们需要额外加一些东西。本文讨论服务如何能够在kubernets上运行起来。 文中所有的例子可以在这里（按标签分类），或者这里（按commit分类）找到。 第一步 最简单的服务从一个最简单的应用开始：main.go package main  impor">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-08T13:38:14.000Z">
-<meta property="article:modified_time" content="2022-04-08T13:39:51.726Z">
+<meta property="article:published_time" content="2017-12-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-08T13:55:17.720Z">
 <meta property="article:author" content="zich">
+<meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
 
 
@@ -254,12 +255,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-04-08 22:43:18'>2017-07-26 00:00</time>
+            发布时间 : <time class="date" title='最后更新: 2022-04-08 22:50:04'>2017-07-26 00:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:319</span>
+        <span>字数:329</span>
         
         
         
@@ -283,7 +284,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>正值暑期最热的几天，我租了个车去了江南天池。<br>江南天池位于浙江安吉天荒坪，说是天池，其实就是建在山顶的水库。<br><img src="/images/tianchi.jpeg" alt="天池水库"><br>我早晨从上海出发，中午到达了苏州，然后沿着靠太湖的一条国道开了过去，之所以没有开高速，是因为刚拿到驾照不久，一来对自己的技术还有点疑虑，而来因为还在实习期确实不能上高速。到达天池山脚下已经傍晚了，找了家旅馆就睡下了。农家旅舍条件很一般，加上天气炎热，一路奔波，反而有点头疼。<br>第二天开车上山，全是盘山公路，倒是很有驾驶乐趣，上海哪有这种路线。<br>到达天池，就有点后悔了，因为是山顶水库，全是钢筋混凝土构造的人工奇迹，一点树木没有，所以特别特别的晒，热的直流汗，我们绕着水库溜达了一圈就下去了，其他也有些游客也跟我们一样，没逛两圈就回去了。<br>夏天建议去海拔稍微高一点的地方去爬山，低海拔的地方爬山就跟桑拿无异。</p>
+        <p>正值暑期最热的几天，我租了个车去了江南天池。<br>江南天池位于浙江安吉天荒坪，说是天池，其实就是建在山顶的水库。<br><img src="/images/tianchi.jpeg" alt="天池水库"><br>早晨从上海出发，中午到达了苏州，然后沿着靠太湖的一条国道开了过去，之所以没有开高速，是因为刚拿到驾照不久，一来对自己的技术还有点疑虑，二来因为还在实习期确实不能上高速。到达天池山脚下已经傍晚了，找了家旅馆就睡下了。农家旅舍条件一般，加上天气炎热，一路奔波，晚上反而有点头疼。<br>第二天开车上山，全是盘山公路，倒是很有驾驶乐趣，上海哪有这种路线。<br>到达了天池，就有点后悔。因为是山顶水库，全是钢筋混凝土构造的人工奇迹，坝上一点树木没有，所以特别特别的晒，热的直流汗，我们绕着水库溜达了一圈就下去了。只有些零零散散的游客也跟我们一样，没逛两圈就回去了。<br>夏天建议去海拔稍微高一点的地方去爬山，气温相对冷，低海拔的地方爬山就跟桑拿无异。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论 </span>

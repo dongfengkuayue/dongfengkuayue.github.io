@@ -1,4 +1,4 @@
-http://github.com/dongfengkuayue/2022/09/10/wuxi_tour/
+http://github.com/dongfengkuayue/2022/09/18/wuxi_tour/
 http://github.com/dongfengkuayue/2017/12/28/write_a_kubernetes_ready_service/
 http://github.com/dongfengkuayue/2017/08/01/go_reflection/
 http://github.com/dongfengkuayue/2017/07/26/jiangnan_tianchi_lvyou/

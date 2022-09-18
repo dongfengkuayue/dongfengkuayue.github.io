@@ -5,5 +5,5 @@ http://github.com/dongfengkuayue/2017/07/26/jiangnan_tianchi_lvyou/
 http://github.com/dongfengkuayue/about/index.html
 http://github.com/dongfengkuayue
 http://github.com/dongfengkuayue/tags/%E6%B1%9F%E6%B5%99/
-http://github.com/dongfengkuayue/categories/%E6%97%85%E6%B8%B8/
 http://github.com/dongfengkuayue/categories/GOLANG/
+http://github.com/dongfengkuayue/categories/%E6%97%85%E6%B8%B8/
